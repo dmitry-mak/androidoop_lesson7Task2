@@ -11,6 +11,7 @@ public class Main {
         int weight;
         int totalCost = 0;
         Address inputAddress;
+        Set<String> countries = new HashSet<>();
 
         Address address1 = new Address("Россия", "Москва");
         Address address2 = new Address("Россия", "Псков");
@@ -46,8 +47,10 @@ public class Main {
                 int price = costPerAddress.get(inputAddress);
                 int deliveryCost = price * weight;
                 totalCost += deliveryCost;
+                countries.add(country);
                 System.out.printf("Стоимость доставки составит: %d \n", deliveryCost);
                 System.out.printf("Общая стоимость всех доставок: %d \n", totalCost);
+                System.out.printf("Количество стран для доставки: %d \n", countries.size());
                 System.out.println();
             } else {
                 System.out.println("Доставки по этому адресу нет");
