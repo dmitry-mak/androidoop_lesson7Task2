@@ -41,7 +41,11 @@ public class Main {
             System.out.print("Введите город: ");
             city = scanner.nextLine();
             System.out.print("Введите вес(кг): ");
-            weight = Integer.parseInt(scanner.nextLine());
+            try{weight = Integer.parseInt(scanner.nextLine());}
+            catch (NumberFormatException e){
+                System.out.println("Вес не может содержать буквы или символы");
+                continue;
+            }
             inputAddress = new Address(country, city);
             if (costPerAddress.containsKey(inputAddress)) {
                 int price = costPerAddress.get(inputAddress);
